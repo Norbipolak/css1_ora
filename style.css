@@ -1,0 +1,260 @@
+body {
+    min-height: 5000px;
+}
+html {
+    font-size: 12px; 
+    /*
+    beállitottuk az alapértelmezett betűméretet, csak a REM-re van hatással EM-re csak akkor ha nincsen neki
+    beállítva a szülőeleménél, vagy a HTML az egyetlen szülőeleme
+    */ 
+}
+* {
+    box-sizing: border-box;
+}
+
+/*
+    sima link a:link
+*/
+a:link {
+    color: salmon;
+    text-decoration: none;
+    /*létezik még text-decoration:overline - underline - line-through (áthúzás) */
+}
+
+/*
+    meglátodatott linkek az a:visited 
+*/
+a:visited {
+    color: red;
+}
+
+/*
+    ha fölé viszed a kurzort a:hover
+*/
+a:hover {
+    color: brown;
+}
+
+/*
+    amikor rákattintasz a:active
+*/
+a:active {
+    color: blue;
+}
+
+/*
+    rendben van ha azt mondjuk hogy csak az li-ket akarom módosítani de az jobb ha azt hogy ul belüli li-ket
+    de ez az ul-en belüli li-kre is vonatkozik, hogy úgy van, hogy ul li ul li(nem csak a közvetlen leszármazottra van hatással)
+*/
+ul li {
+    /*
+        decimal - olyan mint ha ul helyett ol (ordered list-et használtunk volna)
+        de van még upper-roman, lower-roman (római számok nagy-kisbetűvel, decimal-leading-zero(01,02,03,04)
+        lehet akár list-style vagy list-style-type:none
+    */
+    list-style-type: none;
+    list-style: square inside;
+    /*olyan mint a margin, lehet az elhelyezkedés kicsit állítani és itt még meg lehet egy list-style-iamge-t, de
+    felül fogja írni a list-style-type-ot*/
+    /*
+        kétféle van: 
+        inside -> kicsit jobbra
+        outside -> kicsit balra
+    */
+    list-style-position: outside;
+
+    /*
+        lista kép -> list-style-image flaticon -> innen le lehet tölteni képeket
+        ugy hivatkozunk rá, hogy pl. url("youtube.png") - lehet aposztrof nélkül is 
+        kép pozicióját nem tudjuk állítani, lehet, hogy nem teljesen fog illeszkedni a szöveghez amit mellé írtunk
+
+        ha csak az egyikhez akarjuk hozzádni ezt a youtube.png-t akkor visszamegyünk html-re és ott fogjuk hozzáadni:
+        <li>
+            <img src="youtube.png"
+            tej
+        <\li>
+
+    */
+    /*list-style-image:url()*/
+}
+
+table {
+    border: 1px solid grey;
+    /*adtunk egy külső bordert a table-nek*/
+    border-collapse: collapse;
+    /*nem fognak a borderek sokszorozódni, mint ahogy lejjebb írtam, ha azt akarnánk,hogy igen border-collapse:seperate*/
+    text-align: center;
+    /*minden szöveget ezzel középre helyezünk*/
+}
+
+table td,
+table th {
+    border: 1px solid grey;
+    /*sokszorozodnak a borderek, a táblázat rendelkezik egy borderrel, de az összes cella is rendelkezik borderrel*/
+    padding: 8px;
+    /*mert nagyon faltól-falig voltak a karakterek*/
+}
+
+thead tr {
+    background-color: blue !important;
+    /*hogy kiemeljük a fejlécet, adtunk neki egy kék háttérszínt fehér betűkkel*/
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    /*
+    kiválasztjuk a body soraiból a páros sorokat, majd azoknal adunk valamilyen beállítást
+*/
+    background-color: salmon;
+}
+
+tbody tr:nth-child(odd) {
+    /*
+        kiválasztjuk a body soraiból a páratlan sorokat, majd azoknal adunk valamilyen beállítást
+    */
+    background-color: orange;
+}
+
+table tr:hover {
+    /*
+            ha egyes sorok felett van a kurzor akkor meg fog változni a színe a sornak
+            mivel,ezzel megváltozik a thead-nek a background-color-ja is, ezért odaírtuk, hogy !important és akkor nem fog (lásd feljebb)
+            ahova !important van írva az felülírja a alapbeallításokat, hogy melyik az erősebb, de ha a másikhóz is 
+            odaírjuk, hogy !important, akkor visszaáll az alapbeállításra
+        */
+    background-color: lightblue;
+}
+
+tbody tr:nth-child(2) {
+    /*
+        :nth-child-val meg lehet határozni különböző soroknak a beállítását is
+        itt pl. a második sor háttere blueviolet lesz és ez felül fogja írni az eddigi háttérszín beállítást, mert lejjebb van
+
+        ha azt mondjuk a 2 helyett hogy 2n akkor minden másodikra fog vonatkozni, ha azt mondjuk, hogy n3, akkor minden harmadikra
+    */
+    background-color: blueviolet;
+}
+
+tbody tr:first-child {
+    /*
+    ha az első sort szeretnénk módosítani akkor first-child, ha az utolsót akkor last-child, pl: összegzésnél 
+*/
+    background-color: black;
+    color: white
+}
+
+tbody tr:last-child {
+    background-color: grey;
+    color: white
+}
+
+/*
+    Ezek is szelektorok, úgy hívjuk őket, hogy pszedó elemek (:last-child, :nth-child())
+    a pzseudó osztályok pedik(:active, :hover)
+*/
+.rgb-square {
+    /*
+    ha a 3 színből egyforma mennyiséget adunk meg akkor szürke lesz
+    minnél kisebb ez a szám, annál sötétebb lesz 
+*/
+    width: 250px;
+    height: 250px;
+    background-color: rgb(250, 50, 50, );
+    margin: 15px;
+}
+
+.rgb-square {
+    /*
+    RGBA
+    a - alpha nevű csatorna, ami az átláthatóságot határozza meg és lehet 0-tól 1-ig
+    1-nél semmennyire nem átlátszó és minnél kisebb, annál jobban lesz átlátszó pl. 0.1
+    0-nál teljesen átlátszó, semmit nem fogunk látni semmit
+    arra jó ha van egy háttérképünk és atlátszó legyen
+*/
+    width: 250px;
+    height: 250px;
+    background-color: rgba(50, 50, 50, 0.8);
+    /*ha a 3 színből egyforma mennyiséget adunk meg akkor szürke lesz*/
+    margin: 15px;
+}
+
+/*
+    ha be akarunk tenni egy háttérképet, akkor html-ben a vizsgálatnál a body-ba be kell írni:
+    background-image: url(https://memesgenerator.hu/wp-content/uploads/mememe/2021/06/az-kizart-dolog-mert-nem-tudom-17595-1.jpg)
+*/
+.hex-square {
+    /* 
+    két karakterenként határozzuk meg a színt pl. sötétkék: #0000aa, világos szürke: #efefef
+    azt is csinálhatjuk, hogy csak 3 karaktert adunk meg pl. #555 ezt úgy veszi, mintha kíírtuk volna a 6 karaktert #555555
+*/
+    width: 250px;
+    height: 250px;
+    background-color: #ff0000;
+    /* két karakterenként határozzuk meg a színt pl. sötétkék: #0000aa, világos szürke: #efefef*/
+    margin: 15px;
+}
+
+.hexa-square {
+    /*itt is tudunk alpha csatornát használni, további egy párnyi karakter */
+    width: 250px;
+    height: 250px;
+    background-color: #0000ff99;
+    /*de ha a szín fölé visszük a kurzort, akkor ki tudjuk választani a színt, amilyet akarunk*/
+    margin: 15px;
+}
+
+.hsl-square {
+    /*
+    hue, saturation, lightness
+    hue egy szám 360-ig, a másik kettő pedig százalék (nem nagyon használják, leghasználtabb az a hex)
+*/
+    width: 250px;
+    height: 250px;
+    background-color: hsl(300, 50%, 50%);
+    margin: 15px;
+}
+
+.hsla-square {
+
+    width: 250px;
+    height: 250px;
+    background-color: hsl(30, 50%, 50%, 0.6);
+    margin: 15px;
+}
+
+.pt-square {
+    width: 200px;
+    height: 200px;
+    border: 1px solid grey;
+    margin: 15px;
+}
+
+.root-em {
+    /*
+    Ha ennek a betűméretét megváltoztatom 10px-re és mivel a másikat EM-ben határoztuk meg ezért
+    2em, ezért 2 * 10px lesz 
+    ha nincsen megadva a szülőelemnek font-size, akkor a gyökérelemhez viszonyítja, ha viszont meg van adva akkor viszont ahhoz 
+*/
+    font-size: 10px;
+}
+
+.em-font-size {
+    /*
+    betűméretet kétféleképpen lehet meghatározni pixel-ben vagy EM/REM-ben 
+*/
+    font-size: 2em;
+    /*2*16px -> 32px* alaphelyzetben, ha nincs szülőelem*/
+}
+
+.rem-font-size {
+    /*
+        A REM font-size-nál mindegy, az is benne van a root-em elembe, aminek 10px-es a betű mérete, mégis marad 32px-es
+        de ha viszont megváltoztatjuk a html font size-át akkor hatással lesz erre is 
+    html {
+    font-size: 12px; 
+    }
+    így már 2rem nem kétszer 16px lesz hanem kétszer 12
+    */
+    font-size: 2rem;
+    /*2*16px -> 32px* mindig, ha van szölőelem akkor is, kivéve html*/
+}

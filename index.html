@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.CSS óra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Linkek formázása</h1>
+    <ul>
+        <li>a:link -> meg nem látogatott link</li>
+        <li>a:visited -> meglátogatott link</li>
+    </ul>
+    <a href="https://yettel.hu">Yettel</a>
+
+    <h1>Listák</h1>
+    <ul>
+        <li>tej</li>
+        <li>kenyér</li>
+        <li>gyümölcs</li>
+        <li>lapocka</li>
+    </ul>
+
+    <h1>Táblázatok</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Telefonszám</th>
+                <th>Email</th>
+                <th>Lakóhely</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nagy Károly</td>
+                <td>06 50 345 3245</td>
+                <td>nagy.karoly@freemail.ru</td>
+                <td>Pécs</td>
+            </tr>
+            <tr>
+                <td>Nagy Károly</td>
+                <td>06 50 345 3245</td>
+                <td>nagy.karoly@freemail.ru</td>
+                <td>Pécs</td>
+            </tr>
+            <tr>
+                <td>Nagy Károly</td>
+                <td>06 50 345 3245</td>
+                <td>nagy.karoly@freemail.ru</td>
+                <td>Pécs</td>
+            </tr>
+            <tr>
+                <td>Nagy Károly</td>
+                <td>06 50 345 3245</td>
+                <td>nagy.karoly@freemail.ru</td>
+                <td>Pécs</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>Szín típusok</h1>
+    <h2>RGB és RGBA</h2>
+    <div class="rgb-square"></div>
+    <div class="rgba-square"></div>
+
+    <h2>HEX</h2>
+    <p>
+        A HEX ugyanazt csinálja, mint az RGB, csak 16-os számrendszerbe <br>
+        A 16-os számrendszer az annyit tesz, hogy amikor elérnénk a 10-et <br>
+        A 10-et már nem 10-nek hívjuk, hanem a-nak és van még b,c,d,e,f <br>
+        A 0 az 0 az f 15 és az ff az 255
+    </p>
+    <div class="hex-square"></div>
+    <div class="hexa-square"></div>
+
+    <h2>HSL és HSLA</h2>
+    <div class="hsl-square"></div>
+    <div class="hsla-square"></div>
+
+    <h1>CSS mértékegységek</h1>
+    <h2>px</h2>
+    <p>
+        A pixel a képpontot jelöli.
+        A 4k monitoron kisebb a képpont, ezért minden kisebben fog megjelenni. <br>
+        Különböző felbontásokon külöböző méretek jelennek meg.
+    </p>
+
+    <h2>pt</h2>
+    <p>
+        A DPI-vel vagy Dot Per Inch-vel kapcsolatos.
+    </p>
+    <div class="pt-square"></div>
+
+    <h2>EM és REM</h2>
+    <p>
+        Az EM és a REM mindig a betűmérethez képest határozza meg a méretet.
+        A REM a root (HTML) elem betúűméretéhez köthető.
+        Az EM pedig a szülő elem méretéhez köthető.
+    </p>
+
+
+    <div class="root-em">
+        <div class="em-font-size">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore maiores,
+            aspernatur quam, at, reprehenderit molestiae a culpa quasi magni
+            laboriosam voluptatibus obcaecati eaque repudiandae doloribus
+            architecto officiis beatae laudantium dignissimos.
+        </div>
+
+        <div class="rem-font-size">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore maiores,
+            aspernatur quam, at, reprehenderit molestiae a culpa quasi magni
+            laboriosam voluptatibus obcaecati eaque repudiandae doloribus
+            architecto officiis beatae laudantium dignissimos.
+        </div>
+    </div>
+
+</body>
+
+</html>
